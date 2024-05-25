@@ -4,7 +4,7 @@ import axios from "axios";
 export default function Test () {
     const [products, setProducts] = useState ([]);
 
-  
+
     const fetchPorducts = async () => {
         const response = await axios.get("https://fakestoreapi.c0om/products");
         console.log(response.data);
