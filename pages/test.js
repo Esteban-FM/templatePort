@@ -1,20 +1,19 @@
-import  {usesState, useEffect}  from "react";
+import  {useState, useEffect}  from "react";
 import axios from "axios";
 
 export default function Test () {
     const [products, setProducts] = useState ([]);
 
-    
-    const fetchPorducts = async () -=> {
-        const response = await axios.get("https://fakestoreapi.c0om/products")
-        console.log{response.data};
-        setProducts{response.data};
+  
+    const fetchPorducts = async () => {
+        const response = await axios.get("https://fakestoreapi.c0om/products");
+        console.log(response.data);
+        setProducts(response.data);
     };
 
 
-    useEffect ( {} => {
-            fetchProducts (); 
-
+    useEffect ( () => {
+        fetchPorducts();
         }, []);
 
 
@@ -23,7 +22,7 @@ export default function Test () {
         <div>
             {products &&
                 products.length > 0 &&
-                prodicts.map {(product) =>(
+                products.map ((product) =>{ 
                 <div key= {product.id}>
                     <image
                     unoptimized
@@ -34,6 +33,7 @@ export default function Test () {
                     />
                         {product.title}
                 </div>
-                  )}}
+                  })}
         </div>
-    ) };
+    )
+ };
