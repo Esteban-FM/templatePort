@@ -1,16 +1,13 @@
 import "../styles/globals.css";
-import NextAuth from "next-auth"
-import GithubProvider from "next-auth/providers/github"
+import { SessionProvider } from "next-auth/react"
 
-export const authOptions = {
-  // Configure one or more authentication providers
-  providers: [
-    GithubProvider({
-      clientId: process.env.GITHUB_ID,
-      clientSecret: process.env.GITHUB_SECRET,
-    }),
-    // ...add more providers here
-  ],
+export default function App({
+  Component,
+  pageProps: { session, ...pageProps },
+}) {
+  return (
+    <SessionProvider session={session}>
+      <Component {...pageProps} />
+    </SessionProvider>
+  )
 }
-
-export default NextAuth(authOptions)
