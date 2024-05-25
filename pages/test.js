@@ -8,7 +8,7 @@ export default function Test () {
     const fetchPorducts = async () => {
         const response = await axios.get("https://fakestoreapi.c0om/products");
         console.log(response.data);
-        setProducts(response.data);
+        setProducts(respofinse.data);
     };
 
 
